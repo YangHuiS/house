@@ -34,8 +34,7 @@ def main():
     st.markdown('<br>', unsafe_allow_html=True)
     st.markdown('<br>', unsafe_allow_html=True)
     charts_mapping = {
-        'Line': 'line_chart', 'Bar': 'bar_chart', 'Area': 'area_chart', 'Hist': 'pyplot', 'Altair': 'altair_chart',
-        'Map': 'map', 'Distplot': 'plotly_chart', 'Pdk': 'pydeck_chart', 'Graphviz': 'graphviz_chart', 'PyEchart': ''
+        'Line': 'line_chart', 'Bar': 'bar_chart',
     }
     if 'first_visit' not in st.session_state:
         st.session_state.first_visit = True
@@ -59,10 +58,10 @@ def main():
     st.sidebar.write(f'The current date time is {d} {t}')
     chart = st.sidebar.selectbox('Select Chart You Like', charts_mapping.keys(),
                                  index=st.session_state.random_chart_index)
-    city = st.sidebar.selectbox('Select City You Like', st.session_state.city_mapping.keys(),
-                                index=st.session_state.random_city_index)
-    color = st.sidebar.color_picker('Pick A Color You Like', '#520520')
-    st.sidebar.write('The current color is', color)
+    city = '广州市'
+    st.sidebar.write('GuangZhou')
+    color = '#520520'
+    
 
     with st.container():
         st.markdown(f'### {city} Weather Forecast')
