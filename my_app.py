@@ -52,16 +52,14 @@ def main():
         st.balloons()
         st.snow()
 
-    d = st.sidebar.date_input('Date', st.session_state.date_time.date())
-    t = st.sidebar.time_input('Time', st.session_state.date_time.time())
+    d = st.sidebar.write('Date', st.session_state.date_time.date())
+    t = st.sidebar.write('Time', st.session_state.date_time.time())
     t = f'{t}'.split('.')[0]
-    st.sidebar.write(f'The current date time is {d} {t}')
     chart = st.sidebar.selectbox('Select Chart You Like', charts_mapping.keys(),
                                  index=st.session_state.random_chart_index)
     city = '广州市'
-    st.sidebar.write('GuangZhou')
     color = '#520520'
-    
+
 
     with st.container():
         st.markdown(f'### {city} Weather Forecast')
