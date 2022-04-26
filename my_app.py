@@ -101,11 +101,8 @@ def main():
             .set_series_opts(label_opts=opts.LabelOpts(formatter=JsCode("function(x){return x.data[1] + '°C';}")))
         )
 
-        t = Timeline(init_opts=opts.InitOpts(theme=ThemeType.LIGHT, width='1200px'))
-        t.add_schema(play_interval=10000, is_auto_play=True)
-        t.add(c1, "24 Hours Forecast")
-        t.add(c2, "7 Days Forecast")
-        components.html(t.render_embed(), width=1200, height=520)
+        
+        components.html(c1.render_embed(), width=1200, height=520)
         with st.expander("24 Hours Forecast Data"):
             st.table(
                 df_forecastHours.style.format({'Temperature': '{}°C', 'Body Temperature': '{}°C', 'Humidity': '{}%'}))
