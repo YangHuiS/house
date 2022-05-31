@@ -434,15 +434,32 @@ def main():
 
 
     st.markdown('''<div id="eleven"> </span>''', unsafe_allow_html=True)
-    st.write('# :dizzy:广州二手房总价与房屋面积、房间数量、厅数量、楼龄的关系')
+#     st.write('# :dizzy:广州二手房总价与房屋面积、房间数量、厅数量、楼龄的关系')
+#     with st.expander('点击查看相关关系'):
+#         x = df.copy()
+#         y = gz_data2['房屋总价']
+#         from sklearn.linear_model import LinearRegression
+#         model = LinearRegression()
+#         model.fit(x, y)
+#         st.markdown(
+#             f'权重：{np.round(model.coef_, 2)}  \n\n 偏置项：{model.intercept_:.2f}')
+    st.write('## :dizzy:广州二手房总价与房屋面积、房间数量、厅数量、楼龄的关系')
     with st.expander('点击查看相关关系'):
-        x = df.copy()
+        x = gz_data2[['房屋套内面积', '厅数量', '房间数量', '楼龄']]
         y = gz_data2['房屋总价']
         from sklearn.linear_model import LinearRegression
         model = LinearRegression()
         model.fit(x, y)
         st.markdown(
-            f'权重：{np.round(model.coef_, 2)}  \n\n 偏置项：{model.intercept_:.2f}')
+            f'$$y = {model.coef_[0]:.2f}*x_1 + {model.coef_[1]:.2f}*x_2 + {model.coef_[2]:.2f}*x_3 + {model.coef_[3]:.2f}*x_4 + {model.intercept_:.2f}$$')
+        st.markdown(
+            '''
+            - $x_1$: 房屋套内面积
+            - $x_2$: 厅数量
+            - $x_3$: 房间数量
+            - $x_4$: 楼龄
+            '''
+        )
 
 
 def run():
