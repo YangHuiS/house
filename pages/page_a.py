@@ -373,7 +373,42 @@ def main():
             fig = px.box(pd.pivot(gz_data2, columns='房间数量', values='房屋总价'))
             st.plotly_chart(fig, use_container_width=True)
 
-            
+    st.markdown('''<div id="nigh2"> </span>''', unsafe_allow_html=True)
+    st.write('## :dizzy:广州二手房总价与房屋面积、房间数量、厅数量、楼龄的关系')
+    x = gz_data2[['房屋套内面积', '厅数量', '房间数量', '楼龄']]
+    y = gz_data2['房屋总价']
+    with st.expander('点击查看相关关系'):
+        from sklearn.tree import DecisionTreeClassifier
+        dtc = DecisionTreeClassifier()
+        dtc.fit(x, y)
+        tmp = pd.DataFrame(dtc.feature_importances_, index=x.columns)
+
+        st.dataframe(tmp)
+        st.bar_chart(tmp[0])
+
+        x0 = x[tmp.index[tmp[0].argmax()]]
+        from sklearn.linear_model import LinearRegression
+        model = LinearRegression()
+        model.fit(x0, y)
+        st.markdown(
+            f'$$y = {model.coef_[0]:.2f}*x + {model.intercept_:.2f}$$')
+        st.markdown(
+            f'''
+            - $x$: {tmp.index[tmp[0].argmax()]}
+            '''
+        )
+    # with st.expander('点击查看相关关系'):
+    #     st.markdown(
+    #         f'$$y = {model.coef_[0]:.2f}*x_1 + {model.coef_[1]:.2f}*x_2 + {model.coef_[2]:.2f}*x_3 + {model.coef_[3]:.2f}*x_4 + {model.intercept_:.2f}$$')
+    #     st.markdown(
+    #         '''
+    #         - $x_1$: 房屋套内面积
+    #         - $x_2$: 厅数量
+    #         - $x_3$: 房间数量
+    #         - $x_4$: 楼龄
+    #         '''
+    #     )
+
     # st.write('# :dizzy:因子分析')
     st.markdown('''<div id="nigh"> </span>''', unsafe_allow_html=True)
     df = gz_data2[['房屋套内面积', '厅数量', '房间数量', '楼龄']]
@@ -411,7 +446,7 @@ def main():
 
     st.write('# :star:因子分析')
     st.write('建立因子分析模型')
-    ind = st.selectbox('请选择因子个数', [2, 3, 4])  # 选择方式： varimax 方差最大化
+    ind = st.slider('请选择因子个数', min_value=2, max_value=len(df.columns))  # 选择方式： varimax 方差最大化
     faa_two = FactorAnalyzer(ind, rotation='varimax')
     faa_two.fit(df)
     col1, col2 = st.columns(2)
@@ -433,7 +468,6 @@ def main():
         df = faa_two.transform(df)
         st.dataframe(df)
 
-
     st.markdown('''<div id="eleven"> </span>''', unsafe_allow_html=True)
     st.write('# :dizzy:广州二手房总价与房屋面积、房间数量、厅数量、楼龄的关系')
     with st.expander('点击查看相关关系'):
@@ -444,25 +478,11 @@ def main():
         model.fit(x, y)
         st.markdown(
             # f'权重：{np.round(model.coef_, 2)}  \n\n 偏置项：{model.intercept_:.2f}'
-            ' + '.join([f'{j} * x_{i+1}'for i,j in enumerate(np.round(model.coef_, 2))]) + f' + {np.round(model.intercept_, 2)}'
+            ' + '.join([f'{j} * x_{i + 1}' for i, j in
+                        enumerate(np.round(model.coef_, 2))]) + f' + {np.round(model.intercept_, 2)}'
         )
-#     st.write('## :dizzy:广州二手房总价与房屋面积、房间数量、厅数量、楼龄的关系')
-#     with st.expander('点击查看相关关系'):
-#         x = gz_data2[['房屋套内面积', '厅数量', '房间数量', '楼龄']]
-#         y = gz_data2['房屋总价']
-#         from sklearn.linear_model import LinearRegression
-#         model = LinearRegression()
-#         model.fit(x, y)
-#         st.markdown(
-#             f'$$y = {model.coef_[0]:.2f}*x_1 + {model.coef_[1]:.2f}*x_2 + {model.coef_[2]:.2f}*x_3 + {model.coef_[3]:.2f}*x_4 + {model.intercept_:.2f}$$')
-#         st.markdown(
-#             '''
-#             - $x_1$: 房屋套内面积
-#             - $x_2$: 厅数量
-#             - $x_3$: 房间数量
-#             - $x_4$: 楼龄
-#             '''
-#         )
+
+
 
 
 def run():
