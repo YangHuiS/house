@@ -373,7 +373,8 @@ def main():
             fig = px.box(pd.pivot(gz_data2, columns='房间数量', values='房屋总价'))
             st.plotly_chart(fig, use_container_width=True)
 
-    st.write('# :dizzy:因子分析')
+            
+    # st.write('# :dizzy:因子分析')
     st.markdown('''<div id="nigh"> </span>''', unsafe_allow_html=True)
     df = gz_data2[['房屋套内面积', '厅数量', '房间数量', '楼龄']]
     st.header('KMO检验 VS Bartlett检验')
@@ -410,7 +411,7 @@ def main():
 
     st.write('# :star:因子分析')
     st.write('建立因子分析模型')
-    ind = st.slider('请选择因子个数', min_value=2, max_value=len(df.columns))  # 选择方式： varimax 方差最大化
+    ind = st.selectbox('请选择因子个数', [2, 3, 4])  # 选择方式： varimax 方差最大化
     faa_two = FactorAnalyzer(ind, rotation='varimax')
     faa_two.fit(df)
     col1, col2 = st.columns(2)
