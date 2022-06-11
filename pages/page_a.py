@@ -377,12 +377,11 @@ def main():
     st.write('## :dizzy:广州二手房总价与房屋面积、房间数量、厅数量、楼龄的关系')
     x = gz_data2[['房屋套内面积', '厅数量', '房间数量', '楼龄']]
     y = gz_data2['房屋总价']
+    from sklearn.tree import DecisionTreeRegressor
+    dtc = DecisionTreeRegressor()
+    dtc.fit(x, y)
+    tmp = pd.DataFrame(dtc.feature_importances_, index=x.columns)
     with st.expander('点击查看相关关系'):
-        from sklearn.tree import DecisionTreeClassifier
-        dtc = DecisionTreeClassifier()
-        dtc.fit(x, y)
-        tmp = pd.DataFrame(dtc.feature_importances_, index=x.columns)
-
         st.dataframe(tmp)
         st.bar_chart(tmp[0])
 
