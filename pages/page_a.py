@@ -388,12 +388,13 @@ def main():
         x0 = x[tmp.index[tmp[0].argmax()]]
         from sklearn.linear_model import LinearRegression
         model = LinearRegression()
-        model.fit(x0, y)
+        model.fit(x0.values.reshape(-1, 1), y)
         st.markdown(
             f'$$y = {model.coef_[0]:.2f}*x + {model.intercept_:.2f}$$')
         st.markdown(
             f'''
             - $x$: {tmp.index[tmp[0].argmax()]}
+            - $y$: {'房屋总价'}
             '''
         )
     # with st.expander('点击查看相关关系'):
