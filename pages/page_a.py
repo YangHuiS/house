@@ -25,6 +25,7 @@ import numpy as np
 import warnings
 from streamlit.elements.image import image_to_url
 import streamlit.components.v1 as components
+from sklearn.linear_model import LinearRegression
 
 warnings.filterwarnings("ignore")
 
