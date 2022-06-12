@@ -184,9 +184,10 @@ def main():
     st.sidebar.markdown('[6 案例城市房价词云图分析](#six)')
     st.sidebar.markdown('[7 案例城市房价分布形状分析](#seven)')
     st.sidebar.markdown('[8 案例城市房价影响因素分析](#eight)')
-    st.sidebar.markdown('[9 KMO检验](#nigh)')
-    st.sidebar.markdown('[10 因子分析](#ten)')
-    st.sidebar.markdown('[11 回归分析](#eleven)')
+    st.sidebar.markdown('[9 回归分析](#nigh2)')
+    st.sidebar.markdown('[10 KMO检验](#nigh)')
+    st.sidebar.markdown('[11 因子分析](#ten)')
+    # st.sidebar.markdown('[11 回归分析](#eleven)')
 
     # ----------参数面板----------
     st.markdown('''<div id="one"> </span>''', unsafe_allow_html=True)
@@ -382,8 +383,11 @@ def main():
     dtc.fit(x, y)
     tmp = pd.DataFrame(dtc.feature_importances_, index=x.columns)
     with st.expander('点击查看相关关系'):
-        st.dataframe(tmp)
-        st.bar_chart(tmp[0])
+        col1, col2 = st.columns(2)
+        with col1:
+            st.dataframe(tmp)
+        with col2:
+            st.bar_chart(tmp[0])
 
         x0 = x[tmp.index[tmp[0].argmax()]]
         from sklearn.linear_model import LinearRegression
