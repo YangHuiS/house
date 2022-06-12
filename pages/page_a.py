@@ -379,8 +379,6 @@ def main():
     st.write('## :dizzy:广州二手房总价与房屋面积、房间数量、厅数量、楼龄的关系')
     x = gz_data2[['房屋套内面积', '厅数量', '房间数量', '楼龄']]
     y = gz_data2['房屋总价']
-    model = LinearRegression()
-    model.fit(x, y)
 #     from sklearn.tree import DecisionTreeRegressor
 #     dtc = DecisionTreeRegressor()
 #     dtc.fit(x, y)
@@ -405,6 +403,8 @@ def main():
 #             '''
 #         )
     with st.expander('点击查看相关关系'):
+        model = LinearRegression()
+        model.fit(x, y)
         st.markdown(
             f'$$y = {model.coef_[0]:.2f}*x_1 + {model.coef_[1]:.2f}*x_2 + {model.coef_[2]:.2f}*x_3 + {model.coef_[3]:.2f}*x_4 + {model.intercept_:.2f}$$')
         st.markdown(
