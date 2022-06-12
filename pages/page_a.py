@@ -491,7 +491,7 @@ def main():
         t = ' + '.join([f'{j} * x_{i + 1}' for i, j in enumerate(np.round(model.coef_, 2))]) + f' + {np.round(model.intercept_, 2)}'
         st.markdown(
             # f'权重：{np.round(model.coef_, 2)}  \n\n 偏置项：{model.intercept_:.2f}'
-            'y = ' + t
+            '$$y = {t}$$'
         )
 
 
