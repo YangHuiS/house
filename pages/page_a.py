@@ -26,6 +26,7 @@ import warnings
 from streamlit.elements.image import image_to_url
 import streamlit.components.v1 as components
 from sklearn.linear_model import LinearRegression
+# from sklearn.linear_model import LinearRegression
 
 warnings.filterwarnings("ignore")
 
@@ -377,8 +378,6 @@ def main():
 
     st.markdown('''<div id="nigh2"> </span>''', unsafe_allow_html=True)
     st.write('## :dizzy:广州二手房总价与房屋面积、房间数量、厅数量、楼龄的关系')
-    x = gz_data2[['房屋套内面积', '厅数量', '房间数量', '楼龄']]
-    y = gz_data2['房屋总价']
 #     from sklearn.tree import DecisionTreeRegressor
 #     dtc = DecisionTreeRegressor()
 #     dtc.fit(x, y)
@@ -403,6 +402,8 @@ def main():
 #             '''
 #         )
     with st.expander('点击查看相关关系'):
+        x = gz_data2[['房屋套内面积', '厅数量', '房间数量', '楼龄']]
+        y = gz_data2['房屋总价']
         model = LinearRegression()
         model.fit(x, y)
         st.markdown(
@@ -480,7 +481,6 @@ def main():
     with st.expander('点击查看相关关系'):
         x = df.copy()
         y = gz_data2['房屋总价']
-        from sklearn.linear_model import LinearRegression
         model = LinearRegression()
         model.fit(x, y)
         st.markdown(
