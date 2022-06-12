@@ -450,7 +450,7 @@ def main():
 
     st.write('# :star:因子分析')
     st.write('建立因子分析模型')
-    ind = st.slider('请选择因子个数', min_value=2, max_value=len(df.columns))  # 选择方式： varimax 方差最大化
+    ind = st.selectbox('请选择因子个数', [2, 3, 4])  # 选择方式： varimax 方差最大化
     faa_two = FactorAnalyzer(ind, rotation='varimax')
     faa_two.fit(df)
     col1, col2 = st.columns(2)
@@ -472,19 +472,19 @@ def main():
         df = faa_two.transform(df)
         st.dataframe(df)
 
-    st.markdown('''<div id="eleven"> </span>''', unsafe_allow_html=True)
-    st.write('# :dizzy:广州二手房总价与房屋面积、房间数量、厅数量、楼龄的关系')
-    with st.expander('点击查看相关关系'):
-        x = df.copy()
-        y = gz_data2['房屋总价']
-        from sklearn.linear_model import LinearRegression
-        model = LinearRegression()
-        model.fit(x, y)
-        st.markdown(
-            # f'权重：{np.round(model.coef_, 2)}  \n\n 偏置项：{model.intercept_:.2f}'
-            ' + '.join([f'{j} * x_{i + 1}' for i, j in
-                        enumerate(np.round(model.coef_, 2))]) + f' + {np.round(model.intercept_, 2)}'
-        )
+#     st.markdown('''<div id="eleven"> </span>''', unsafe_allow_html=True)
+#     st.write('# :dizzy:广州二手房总价与房屋面积、房间数量、厅数量、楼龄的关系')
+#     with st.expander('点击查看相关关系'):
+#         x = df.copy()
+#         y = gz_data2['房屋总价']
+#         from sklearn.linear_model import LinearRegression
+#         model = LinearRegression()
+#         model.fit(x, y)
+#         st.markdown(
+#             # f'权重：{np.round(model.coef_, 2)}  \n\n 偏置项：{model.intercept_:.2f}'
+#             ' + '.join([f'{j} * x_{i + 1}' for i, j in
+#                         enumerate(np.round(model.coef_, 2))]) + f' + {np.round(model.intercept_, 2)}'
+#         )
 
 
 
