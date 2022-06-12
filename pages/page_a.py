@@ -474,7 +474,7 @@ def main():
 
 #     st.markdown('''<div id="eleven"> </span>''', unsafe_allow_html=True)
 #     st.write('# :dizzy:广州二手房总价与房屋面积、房间数量、厅数量、楼龄的关系')
-#     with st.expander('点击查看相关关系'):
+    with st.expander('点击查看相关关系'):
         x = df.copy()
         y = gz_data2['房屋总价']
         from sklearn.linear_model import LinearRegression
