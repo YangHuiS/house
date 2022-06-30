@@ -382,7 +382,7 @@ def main():
 #     dtc = DecisionTreeRegressor()
 #     dtc.fit(x, y)
 #     tmp = pd.DataFrame(dtc.feature_importances_, index=x.columns)
-#     with st.expander('点击查看相关关系'):
+#     with st.expander('点击查看回归方程'):
 #         col1, col2 = st.columns(2)
 #         with col1:
 #             st.dataframe(tmp)
