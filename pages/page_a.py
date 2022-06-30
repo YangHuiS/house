@@ -401,7 +401,7 @@ def main():
 #             - $y$: {'房屋总价'}
 #             '''
 #         )
-    with st.expander('点击查看相关关系'):
+    with st.expander('点击查看回归方程'):
         x = gz_data2[['房屋套内面积', '厅数量', '房间数量', '楼龄']]
         y = gz_data2['房屋总价']
         model = LinearRegression()
