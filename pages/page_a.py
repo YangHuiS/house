@@ -141,8 +141,8 @@ def get_gz_house(nums=10, file_name='gzdata_all.csv'):
 def process_gz(data):
     import re
     st.write(data)
-    data['房屋套内面积'] = data['房屋套内面积'].str.replace('平米', '').astype('float')
-    data['房屋单价'] = data['房屋单价'].str.replace('元/平', '').str.replace(',', '')# .astype('float')
+    data['房屋套内面积'] = data['房屋套内面积'].apply(lambda x: float(re.sub('平米', '', x))) # str.replace('平米', '').astype('float')
+    data['房屋单价'] = data['房屋单价'].apply(lambda x: float(re.sub('元/平|,', '', x)))  # str.replace('元/平', '').str.replace(',', '')# .astype('float')
     st.write(data)
     data['厅数量'] = data['房屋户型'].apply(lambda x: int(re.findall('([0-9]+)厅', x)[0]))
     data['房间数量'] = data['房屋户型'].apply(lambda x: int(re.findall('([0-9]+)室', x)[0]))
