@@ -7,8 +7,8 @@ import requests
 import pandas as pd
 import streamlit as st
 import streamlit.components.v1 as components
-from streamlit.server.server import Server
-from streamlit.scriptrunner import get_script_run_ctx as get_report_ctx
+# from streamlit.server.server import Server
+# from streamlit.scriptrunner import get_script_run_ctx as get_report_ctx
 from st_aggrid import AgGrid
 from pyecharts.charts import *
 from pyecharts import options as opts
