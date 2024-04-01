@@ -159,7 +159,6 @@ PyQt5==5.15.7
 PyQtWebEngine==5.15.4
 pyrsistent 
 PyWavelets 
-pywinpty 
 PyYAML 
 pyzmq 
 QDarkStyle 
@@ -253,13 +252,9 @@ websocket-client
 Werkzeug 
 whatthepatch 
 widgetsnbextension 
-win-inet-pton 
-wincertstore==0.2
 wordcloud==1.9.2
 wrapt 
 xarray 
-xlwings 
-xxhash==3.2.0
 yapf 
 yarl==1.9.2
 zh-core-web-sm 
