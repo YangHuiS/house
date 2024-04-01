@@ -78,7 +78,7 @@ executing
 fastjsonschema 
 filelock 
 flake8 
-Flask 
+factor_analyzer
 flatbuffers==23.5.26
 flit_core 
 fonttools==4.25.0
