@@ -255,9 +255,3 @@ wordcloud==1.9.2
 wrapt 
 xarray 
 yapf 
-yarl==1.9.2
-zh-core-web-sm 
-zict==2.1.0
-zipp 
-zope.interface 
-zstandard==0.19.0
