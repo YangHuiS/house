@@ -310,8 +310,6 @@ pytoolconfig
 pytz 
 pyviz-comms 
 PyWavelets 
-pywin32==305.1
-pywin32-ctypes 
 pywinpty 
 PyYAML 
 pyzmq 
