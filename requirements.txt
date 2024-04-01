@@ -104,8 +104,6 @@ imageio
 imagesize 
 imbalanced-learn 
 imgaug==0.4.0
-importlib==1.0.4
-importlib-metadata 
 incremental 
 inflection==0.5.1
 iniconfig 
@@ -130,8 +128,6 @@ jsonpointer==2.1
 jsonschema 
 keyring 
 kiwisolver 
-langcodes==3.3.0
-langsmith==0.0.49
 lazy-object-proxy 
 libarchive-c 
 libclang==16.0.0
@@ -145,7 +141,6 @@ lz4
 MarkupSafe 
 marshmallow==3.20.1
 matplotlib 
-matplotlib-inline 
 mccabe 
 mdurl==0.1.2
 menuinst 
@@ -171,7 +166,6 @@ nbclient
 nbconvert 
 nbformat 
 nest-asyncio 
-networkx 
 nltk 
 notebook 
 notebook_shim 
@@ -181,7 +175,6 @@ numpy
 numpydoc 
 oauthlib==3.2.2
 opt-einsum==3.3.0
-packaging 
 pandas 
 pandocfilters 
 panel 
@@ -193,9 +186,6 @@ partd
 pathlib 
 pathspec 
 pathtools==0.1.2
-pathy==0.10.2
-patsy==0.5.3
-peft==0.8.1
 pep8==1.7.1
 pexpect 
 pickleshare 
@@ -210,17 +200,11 @@ portalocker==2.0.0
 poyo 
 preshed==3.0.8
 prettytable==3.8.0
-prometheus-client 
-prompt-toolkit 
 Protego 
 protobuf==4.23.3
 psutil 
 ptyprocess 
 pure-eval 
-pyarrow==12.0.1
-pyarrow-hotfix==0.6
-pyasn1 
-pyasn1-modules==0.2.8
 pycodestyle 
 pycosat 
 pycparser 
@@ -280,7 +264,6 @@ scipy==1.10.0
 Scrapy 
 seaborn 
 Send2Trash 
-sentence-transformers==2.2.2
 seqeval==1.2.2
 service-identity 
 shapely==2.0.2
@@ -296,18 +279,7 @@ snowballstemmer
 sortedcontainers 
 soupsieve 
 spacy==3.6.0
-spacy-legacy==3.0.12
-spacy-loggers==1.0.4
-spacy-pkuseg==0.0.32
 Sphinx 
-sphinxcontrib-applehelp 
-sphinxcontrib-devhelp 
-sphinxcontrib-htmlhelp 
-sphinxcontrib-jsmath 
-sphinxcontrib-qthelp 
-sphinxcontrib-serializinghtml 
-spyder 
-spyder-kernels 
 SQLAlchemy 
 srsly==2.4.6
 stack-data 
@@ -317,7 +289,6 @@ streamlit-aggrid==1.0.0
 sympy 
 tables==3.7.0
 tabulate 
-TBB==0.2
 tblib 
 tenacity==8.2.3
 termcolor==1.1.0
@@ -330,7 +301,6 @@ three-merge
 tifffile 
 tinycss2 
 tldextract 
-tokenizers==0.15.1
 toml 
 tomli 
 tomlkit 
@@ -347,11 +317,9 @@ typing_extensions
 tyro==0.7.0
 tzlocal==5.2
 ujson 
-Unidecode 
 urllib3 
 validators==0.22.0
 w3lib 
-wasabi==0.10.1
 watchdog 
 wcwidth 
 webencodings==0.5.1
