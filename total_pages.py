@@ -2,7 +2,7 @@ import multipage_streamlit as mt
 from pages import page_a, page_b
 import streamlit as st
 from streamlit.elements.image import image_to_url
-from streamlit.server.server import Server
+#from streamlit.server.server import Server
 import datetime
 
 st.set_page_config(
@@ -25,6 +25,6 @@ app.add("环境数据", page_b.run)
 app.add("消费数据", page_b.run)
 app.run_radio('经济大数据')
 
-sessions = Server.get_current()._session_info_by_id
-st.sidebar.info(f'当前在线人数：{len(sessions)}')
+# sessions = Server.get_current()._session_info_by_id
+# st.sidebar.info(f'当前在线人数：{len(sessions)}')
 # alternatives: app.run_expander() or app.run_radio() if you prefer those
