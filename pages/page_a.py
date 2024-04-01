@@ -294,6 +294,7 @@ def main():
             st.form_submit_button()  # 在这里点击提交之后，单元格里面的修改部分就可以传到后面了
 
     gz_data = get_gz_house()
+    st.write(gz_data)
     gz_data2 = process_gz(gz_data)
 
     st.markdown('''<div id="six"> </span>''', unsafe_allow_html=True)
