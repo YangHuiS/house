@@ -281,17 +281,17 @@ def main():
     st.title(':star:广州二手房价数据采集与分析')
     st.write('# :dizzy:广州二手房价数据采集')
     # ----------任务控制----------
-    if st.button('开始爬取广州二手房价'):
-        # 爬取数据
-        gz_data = get_gz_house()
-        with st.form('example form4') as f2:  # form表单
-            ag4 = AgGrid(
-                gz_data,
-                height=400,
-                fit_columns_on_grid_load=True,  # 列过少的时候，设置True。 列过多的时候就不用设置了
-                reload_data=False
-            )
-            st.form_submit_button()  # 在这里点击提交之后，单元格里面的修改部分就可以传到后面了
+    # if st.button('开始爬取广州二手房价'):
+    #     # 爬取数据
+    #     gz_data = get_gz_house()
+    #     with st.form('example form4') as f2:  # form表单
+    #         ag4 = AgGrid(
+    #             gz_data,
+    #             height=400,
+    #             fit_columns_on_grid_load=True,  # 列过少的时候，设置True。 列过多的时候就不用设置了
+    #             reload_data=False
+    #         )
+    #         st.form_submit_button()  # 在这里点击提交之后，单元格里面的修改部分就可以传到后面了
 
     gz_data = get_gz_house()
     st.table(gz_data)
