@@ -45,7 +45,6 @@ charset-normalizer
 chinese-calendar==1.8.1
 click 
 cloudpickle 
-clyent==1.2.2
 colorama 
 colorcet 
 comm 
