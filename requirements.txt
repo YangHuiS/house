@@ -125,6 +125,7 @@ lz4
 MarkupSafe 
 marshmallow==3.20.1
 matplotlib 
+multipage_streamlit
 numpy 
 numpydoc 
 pandas 
